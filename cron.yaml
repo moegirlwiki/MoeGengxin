@@ -1,0 +1,16 @@
+cron:
+- description: refresh send job 1
+  url: /send
+  schedule: every 20 minutes from 7:00 to 23:59
+  timezone: Asia/Shanghai
+- description: refresh send job 2
+  url: /send
+  schedule: every 60 minutes from 0:00 to 7:00
+  timezone: Asia/Shanghai
+- description: refresh sendmain job
+  url: /sendmail
+  schedule: every monday 09:00
+  timezone: Asia/Shanghai
+- description: clear old feed history
+  url: /clear
+  schedule: every 24 hours
