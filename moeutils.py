@@ -21,7 +21,12 @@ def getImage(feed_url):
 		break
 	image_content = None
 	if(img != None):
-		image_remote=urlfetch.fetch(img["pagespeed_lazy_src"])
+		src=str(img["src"])
+		if(src.startswith("//1-ps.google")):
+			src=img["pagespeed_lazy_src"]
+		if(src.startswith("//")):
+			src="http:"+src
+		image_remote=urlfetch.fetch(src)
 		if(image_remote.status_code!=200):
 			return None
 		image_content = image_remote.content
